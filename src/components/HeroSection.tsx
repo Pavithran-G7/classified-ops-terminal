@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import NeuralCanvas from './NeuralCanvas';
 import { useTypewriter } from '@/hooks/useTypewriter';
+import { useIsMobile } from '@/hooks/use-mobile';
+
+const NeuralGlobe = lazy(() => import('./NeuralGlobe'));
 
 const bootLines = [
   { text: '> initializing_neural_link...', delay: 800 },
@@ -14,6 +17,7 @@ export default function HeroSection() {
   const [bootPhase, setBootPhase] = useState(0);
   const [showContent, setShowContent] = useState(false);
   const [bootComplete, setBootComplete] = useState(false);
+  const isMobile = useIsMobile();
 
   const line0 = useTypewriter({ text: bootLines[0].text, speed: 30, delay: 1000, enabled: bootPhase >= 0 });
   const line1 = useTypewriter({ text: bootLines[1].text, speed: 25, delay: 0, enabled: bootPhase >= 1 });
@@ -42,12 +46,20 @@ export default function HeroSection() {
       <div className="absolute inset-0 scanline-overlay" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-12 items-center">
-        {/* Left - spacer for neural network */}
-        <div className="hidden lg:block lg:col-span-3" />
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-11 gap-8 items-center">
+        {/* Left - 3D Neural Globe */}
+        <div className="lg:col-span-6 h-[350px] md:h-[500px]">
+          {!isMobile ? (
+            <Suspense fallback={<div className="w-full h-full" />}>
+              <NeuralGlobe />
+            </Suspense>
+          ) : (
+            <NeuralCanvas />
+          )}
+        </div>
 
         {/* Right - Terminal */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-5">
           <div className="glass-panel rounded-lg p-6 glow-indigo">
             {/* Terminal header */}
             <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
