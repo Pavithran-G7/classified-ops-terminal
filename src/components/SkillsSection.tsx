@@ -40,10 +40,10 @@ export default function SkillsSection() {
     : skillsData.filter(s => s.category === activeFilter);
 
   return (
-    <section id="skills" className="relative py-32 overflow-hidden">
+    <section id="skills" className="relative py-12 md:py-16 overflow-hidden">
       <div className="absolute inset-0 hex-grid-bg" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6" ref={ref}>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -56,14 +56,14 @@ export default function SkillsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-display font-bold text-gradient-primary mb-12"
+          className="text-3xl md:text-4xl font-display font-bold text-gradient-primary mb-8"
         >
           Tech Arsenal
         </motion.h2>
 
         {/* Filter tabs */}
         <motion.div
-          className="flex flex-wrap gap-2 mb-12"
+          className="flex flex-wrap gap-2 mb-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

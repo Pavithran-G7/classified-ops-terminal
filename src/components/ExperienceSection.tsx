@@ -45,10 +45,10 @@ const statusColors: Record<string, string> = {
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="relative py-32 overflow-hidden">
+    <section id="experience" className="relative py-12 md:py-16 overflow-hidden">
       <div className="absolute inset-0 hex-grid-bg" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -61,7 +61,7 @@ export default function ExperienceSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-display font-bold text-gradient-primary mb-16"
+          className="text-3xl md:text-4xl font-display font-bold text-gradient-primary mb-8"
         >
           Field Experience
         </motion.h2>
