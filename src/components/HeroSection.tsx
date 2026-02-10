@@ -48,7 +48,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-11 gap-8 items-center">
         {/* Left - 3D Neural Globe */}
-        <div className="lg:col-span-6 h-[350px] md:h-[500px]">
+        <div className="lg:col-span-6 h-[250px] sm:h-[320px] md:h-[420px] lg:h-[500px] xl:h-[560px]">
           {!isMobile ? (
             <Suspense fallback={<div className="w-full h-full" />}>
               <NeuralGlobe />

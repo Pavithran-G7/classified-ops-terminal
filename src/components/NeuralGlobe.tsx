@@ -162,7 +162,7 @@ function DataPackets() {
 /* ── Canvas wrapper ── */
 export default function NeuralGlobe() {
   return (
-    <div className="w-full h-full min-h-[350px]">
+    <div className="w-full h-full min-h-[200px] sm:min-h-[280px] md:min-h-[350px]">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
         dpr={[1, 1.5]}
