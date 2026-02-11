@@ -2,7 +2,6 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import NeuralCanvas from './NeuralCanvas';
 import { useTypewriter } from '@/hooks/useTypewriter';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const NeuralGlobe = lazy(() => import('./NeuralGlobe'));
 
@@ -17,7 +16,7 @@ export default function HeroSection() {
   const [bootPhase, setBootPhase] = useState(0);
   const [showContent, setShowContent] = useState(false);
   const [bootComplete, setBootComplete] = useState(false);
-  const isMobile = useIsMobile();
+  
 
   const line0 = useTypewriter({ text: bootLines[0].text, speed: 30, delay: 1000, enabled: bootPhase >= 0 });
   const line1 = useTypewriter({ text: bootLines[1].text, speed: 25, delay: 0, enabled: bootPhase >= 1 });
@@ -48,14 +47,10 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-11 gap-8 items-center">
         {/* Left - 3D Neural Globe */}
-        <div className="lg:col-span-6 h-[250px] sm:h-[320px] md:h-[420px] lg:h-[500px] xl:h-[560px]">
-          {!isMobile ? (
-            <Suspense fallback={<div className="w-full h-full" />}>
-              <NeuralGlobe />
-            </Suspense>
-          ) : (
-            <NeuralCanvas />
-          )}
+        <div className="lg:col-span-6 h-[280px] sm:h-[320px] md:h-[400px] lg:h-[500px] xl:h-[560px]">
+          <Suspense fallback={<div className="w-full h-full" />}>
+            <NeuralGlobe />
+          </Suspense>
         </div>
 
         {/* Right - Terminal */}
