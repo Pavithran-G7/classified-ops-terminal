@@ -12,10 +12,10 @@ const bootLines = [
   { text: '> identity_verified', delay: 0 },
 ];
 
-export default function HeroSection() {
-  const [bootPhase, setBootPhase] = useState(0);
-  const [showContent, setShowContent] = useState(false);
-  const [bootComplete, setBootComplete] = useState(false);
+export default function HeroSection({ skipBoot = false }: { skipBoot?: boolean }) {
+  const [bootPhase, setBootPhase] = useState(skipBoot ? 4 : 0);
+  const [showContent, setShowContent] = useState(skipBoot);
+  const [bootComplete, setBootComplete] = useState(skipBoot);
   
 
   const line0 = useTypewriter({ text: bootLines[0].text, speed: 30, delay: 1000, enabled: bootPhase >= 0 });
