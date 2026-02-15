@@ -106,7 +106,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  <span className="text-gradient-primary">Alex Chen</span>
+                  <span className="text-gradient-primary">Kiran Raj S</span>
                 </motion.h1>
 
                 <motion.div
@@ -115,7 +115,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
                 >
-                  AI/ML Engineer <span className="text-muted-foreground">|</span> Security Researcher
+                  AI/ML Engineer <span className="text-muted-foreground">|</span> Cybersecurity Enthusiast
                 </motion.div>
 
                 <motion.div
