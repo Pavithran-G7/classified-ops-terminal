@@ -16,7 +16,7 @@ export default function HeroSection() {
   const [bootPhase, setBootPhase] = useState(0);
   const [showContent, setShowContent] = useState(false);
   const [bootComplete, setBootComplete] = useState(false);
-  
+
 
   const line0 = useTypewriter({ text: bootLines[0].text, speed: 30, delay: 1000, enabled: bootPhase >= 0 });
   const line1 = useTypewriter({ text: bootLines[1].text, speed: 25, delay: 0, enabled: bootPhase >= 1 });
@@ -115,7 +115,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
                 >
-                  AI/ML Engineer <span className="text-muted-foreground">|</span> Cybersecurity Enthusiast
+                  AI/ML Engineer <span className="text-muted-foreground"></span>
                 </motion.div>
 
                 <motion.div
