@@ -39,9 +39,9 @@ const timeline = [
 
 // SVG path constants
 const PATH_PADDING_TOP = 40;
-const CARD_SPACING = 320;
-const CHECKPOINT_OFFSETS = timeline.map((_, i) => PATH_PADDING_TOP + 80 + i * CARD_SPACING);
-const TOTAL_HEIGHT = CHECKPOINT_OFFSETS[CHECKPOINT_OFFSETS.length - 1] + 120;
+const CARD_SPACING = 260;
+const CHECKPOINT_OFFSETS = timeline.map((_, i) => PATH_PADDING_TOP + 60 + i * CARD_SPACING);
+const TOTAL_HEIGHT = CHECKPOINT_OFFSETS[CHECKPOINT_OFFSETS.length - 1] + 80;
 
 function buildSvgPath(width: number): string {
   const cx = width / 2;
@@ -87,7 +87,7 @@ export default function ExperienceSection() {
   // Scroll progress
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start 80%', 'end 20%'],
+    offset: ['start 80%', 'end 40%'],
   });
 
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 60, damping: 20 });
@@ -220,26 +220,60 @@ export default function ExperienceSection() {
               );
             })}
 
-            {/* Traveling Marker */}
+            {/* Traveling Robot Marker */}
             {pathLength > 0 && (
               <g
-                transform={`translate(${markerPos.x}, ${markerPos.y}) rotate(${markerPos.angle})`}
+                transform={`translate(${markerPos.x}, ${markerPos.y})`}
                 filter="url(#markerGlow)"
               >
-                <polygon
-                  points="-8,-6 10,0 -8,6 -4,0"
-                  fill="hsl(var(--matrix))"
-                  opacity="0.95"
-                />
-                {/* Trail circles */}
-                {[-12, -20, -28].map((offset, i) => (
+                {/* Mini Robot */}
+                <g transform="translate(-12, -14) scale(0.9)">
+                  {/* Body */}
+                  <rect x="4" y="10" width="16" height="14" rx="3" fill="hsl(var(--matrix))" opacity="0.95" />
+                  {/* Head */}
+                  <rect x="6" y="2" width="12" height="10" rx="2" fill="hsl(var(--cyan))" opacity="0.9" />
+                  {/* Eyes */}
+                  <circle cx="10" cy="7" r="1.5" fill="hsl(var(--background))" />
+                  <circle cx="14" cy="7" r="1.5" fill="hsl(var(--background))" />
+                  <circle cx="10" cy="7" r="0.8" fill="hsl(var(--matrix))">
+                    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="14" cy="7" r="0.8" fill="hsl(var(--matrix))">
+                    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                  {/* Antenna */}
+                  <line x1="12" y1="2" x2="12" y2="-3" stroke="hsl(var(--cyan))" strokeWidth="1" />
+                  <circle cx="12" cy="-4" r="2" fill="hsl(var(--matrix))">
+                    <animate attributeName="r" values="1.5;2.5;1.5" dur="1s" repeatCount="indefinite" />
+                  </circle>
+                  {/* Legs */}
+                  <rect x="6" y="24" width="4" height="5" rx="1" fill="hsl(var(--matrix))" opacity="0.8">
+                    <animate attributeName="y" values="24;22;24" dur="0.4s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="14" y="24" width="4" height="5" rx="1" fill="hsl(var(--matrix))" opacity="0.8">
+                    <animate attributeName="y" values="22;24;22" dur="0.4s" repeatCount="indefinite" />
+                  </rect>
+                  {/* Arms */}
+                  <rect x="-1" y="12" width="5" height="3" rx="1" fill="hsl(var(--cyan))" opacity="0.7">
+                    <animate attributeName="y" values="12;14;12" dur="0.6s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="20" y="14" width="5" height="3" rx="1" fill="hsl(var(--cyan))" opacity="0.7">
+                    <animate attributeName="y" values="14;12;14" dur="0.6s" repeatCount="indefinite" />
+                  </rect>
+                  {/* Chest light */}
+                  <circle cx="12" cy="17" r="2" fill="hsl(var(--indigo))" opacity="0.8">
+                    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                </g>
+                {/* Trail particles */}
+                {[-18, -28, -38].map((offset, i) => (
                   <circle
                     key={i}
-                    cx={offset}
-                    cy="0"
+                    cx={0}
+                    cy={offset}
                     r={3 - i}
                     fill="hsl(var(--cyan))"
-                    opacity={0.5 - i * 0.15}
+                    opacity={0.4 - i * 0.12}
                   />
                 ))}
               </g>
@@ -358,8 +392,8 @@ function TimelineCard({
   const cardStyle: React.CSSProperties = isMobile
     ? { top: topOffset, left: '8%', right: '8%' }
     : isLeft
-      ? { top: topOffset, left: '4%', width: '38%' }
-      : { top: topOffset, right: '4%', width: '38%' };
+      ? { top: topOffset, left: '2%', width: '44%' }
+      : { top: topOffset, right: '2%', width: '44%' };
 
   return (
     <motion.div

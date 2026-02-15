@@ -8,17 +8,17 @@ import { Download, ExternalLink, Github, Linkedin, Shield } from 'lucide-react';
 
 /* ── Personnel Data ─────────────────────────────── */
 const personnelData = [
-  { label: 'ID', value: 'ALEX_CHEN', color: 'text-foreground' },
-  { label: 'CLEARANCE', value: 'LEVEL 4', color: 'text-matrix' },
-  { label: 'SPECIALTY', value: 'NEURAL ARCHITECTURE', color: 'text-cyan' },
-  { label: 'STATUS', value: 'ACTIVE', color: 'text-matrix' },
-  { label: 'LOCATION', value: 'SAN FRANCISCO, US', color: 'text-foreground' },
+  { label: 'ID', value: 'KIRAN_RAJ_S', color: 'text-foreground' },
+  { label: 'CLEARANCE', value: 'LEVEL 5', color: 'text-matrix' },
+  { label: 'SPECIALTY', value: 'AI & CYBERSECURITY', color: 'text-cyan' },
+  { label: 'STATUS', value: 'ACTIVE — OPEN TO WORK', color: 'text-matrix' },
+  { label: 'LOCATION', value: 'BANGALORE, INDIA', color: 'text-foreground' },
 ];
 
 const skills = [
-  { name: 'AI / Machine Learning', value: 88, color: 'stroke-indigo' },
-  { name: 'Security Research', value: 75, color: 'stroke-matrix' },
-  { name: 'Full-Stack Engineering', value: 82, color: 'stroke-cyan' },
+  { name: 'AI / Machine Learning', value: 90, color: 'stroke-indigo' },
+  { name: 'Cybersecurity', value: 80, color: 'stroke-matrix' },
+  { name: 'Full-Stack Dev', value: 85, color: 'stroke-cyan' },
 ];
 
 const socialLinks = [
@@ -224,13 +224,13 @@ export default function SystemProfile() {
                   </div>
                   <div>
                     <h3 className="font-display font-bold text-foreground">
-                      B.Tech in Artificial Intelligence & ML
+                       B.Tech in Computer Science & Engineering
                     </h3>
                     <p className="font-mono text-sm text-muted-foreground">
-                      University of Technology • 2022—2026
+                      VIT University, Vellore • 2022—2026
                     </p>
                     <p className="font-mono text-xs text-cyan/70 mt-1">
-                      Focus: Deep Learning, Adversarial ML, Cybersecurity
+                      Focus: Machine Learning, Deep Learning, Network Security
                     </p>
                   </div>
                 </div>
@@ -261,17 +261,16 @@ export default function SystemProfile() {
               </div>
               <div className="glass-panel rounded-lg p-5">
                 <p className="text-sm md:text-base leading-relaxed text-muted-foreground font-body">
-                  Third-year <span className="text-cyan font-mono text-sm">AI/ML engineering</span> student
-                  with a deep fascination for building{' '}
-                  <span className="text-cyan font-mono text-sm">intelligent systems</span> that push boundaries.
-                  Combining expertise in{' '}
-                  <span className="text-cyan font-mono text-sm">neural architectures</span> with a passion for{' '}
-                  <span className="text-matrix font-mono text-sm">cybersecurity</span>,
-                  I explore the intersection where AI meets defense—from{' '}
-                  <span className="text-matrix font-mono text-sm">adversarial machine learning</span> to{' '}
-                  <span className="text-matrix font-mono text-sm">automated threat detection</span>.
-                  Currently focused on building robust, real-world ML pipelines and contributing to
-                  open-source security tools.
+                  Final-year <span className="text-cyan font-mono text-sm">Computer Science</span> student
+                  passionate about building{' '}
+                  <span className="text-cyan font-mono text-sm">intelligent, secure systems</span>.
+                  Skilled in{' '}
+                  <span className="text-cyan font-mono text-sm">deep learning</span> and{' '}
+                  <span className="text-matrix font-mono text-sm">penetration testing</span>,
+                  I work at the intersection of AI and cybersecurity—from{' '}
+                  <span className="text-matrix font-mono text-sm">adversarial robustness</span> to{' '}
+                  <span className="text-matrix font-mono text-sm">threat detection pipelines</span>.
+                  Always building, always learning, always shipping.
                 </p>
               </div>
             </motion.div>
