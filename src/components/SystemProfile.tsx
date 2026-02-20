@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { useTypewriter } from '@/hooks/useTypewriter';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import MatrixRain from './MatrixRain';
+import CircuitBoardBg from './backgrounds/CircuitBoardBg';
 import { Download, ExternalLink, Github, Linkedin, Shield } from 'lucide-react';
 
 /* ── Personnel Data ─────────────────────────────── */
@@ -119,7 +120,8 @@ export default function SystemProfile() {
     <section id="about" className="relative py-12 md:py-16 overflow-hidden" ref={sectionRef}>
       {/* Background layers */}
       <div className="absolute inset-0 hex-grid-bg" />
-      <MatrixRain opacity={0.04} />
+      <CircuitBoardBg opacity={0.6} />
+      <MatrixRain opacity={0.03} />
 
       {/* Gradient mesh */}
       <div className="absolute inset-0 opacity-30">

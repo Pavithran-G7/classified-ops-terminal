@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Github, Linkedin, Shield, Check } from 'lucide-react';
+import WavePulseBg from './backgrounds/WavePulseBg';
 
 export default function ContactSection() {
   const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' });
@@ -26,6 +27,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative py-12 md:py-16 overflow-hidden">
       <div className="absolute inset-0 hex-grid-bg" />
+      <WavePulseBg />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8">
         <motion.div
