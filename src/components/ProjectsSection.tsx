@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Brain, Shield } from 'lucide-react';
 import FloatingNodesBg from './backgrounds/FloatingNodesBg';
+import Antigravity from './animations/Antigravity';
 
 const projects = [
   {
@@ -66,7 +67,27 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="relative py-12 md:py-16 overflow-hidden">
       <div className="absolute inset-0 hex-grid-bg" />
-      <FloatingNodesBg />
+
+      {/* Antigravity particle field — interactive, mouse-following */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Antigravity
+          count={380}
+          magnetRadius={6}
+          ringRadius={13}
+          waveSpeed={0.2}
+          waveAmplitude={1}
+          particleSize={1.5}
+          lerpSpeed={0.17}
+          color="#6366f1"
+          autoAnimate={true}
+          particleVariance={1}
+          rotationSpeed={0}
+          depthFactor={1}
+          pulseSpeed={3}
+          particleShape="capsule"
+          fieldStrength={10}
+        />
+      </div>
 
       {/* Ambient glow — indigo dominant */}
       <div className="absolute inset-0 pointer-events-none">

@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Github, Linkedin, Shield, Check } from 'lucide-react';
-import WavePulseBg from './backgrounds/WavePulseBg';
+import OGLParticles from './animations/OGLParticles';
 
 export default function ContactSection() {
   const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' });
@@ -27,7 +27,21 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative py-12 md:py-16 overflow-hidden">
       <div className="absolute inset-0 hex-grid-bg" />
-      <WavePulseBg />
+
+      {/* OGL Particle field background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <OGLParticles
+          particleColors={['#81ee83', '#6366f1', '#22d3ee']}
+          particleCount={600}
+          particleSpread={10}
+          speed={0.08}
+          particleBaseSize={80}
+          moveParticlesOnHover={false}
+          alphaParticles
+          disableRotation
+          pixelRatio={2}
+        />
+      </div>
 
       {/* Indigo/cyan ambient — AI focused */}
       <div className="absolute inset-0 pointer-events-none">
