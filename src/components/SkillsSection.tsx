@@ -77,9 +77,9 @@ export default function SkillsSection() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="font-mono text-xs text-matrix/60 tracking-[0.3em] mb-2"
+          className="font-mono text-xs text-indigo/60 tracking-[0.3em] mb-2"
         >
-          SECTION_03
+          MODULE_03
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

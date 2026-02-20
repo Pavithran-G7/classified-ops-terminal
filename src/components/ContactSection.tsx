@@ -19,9 +19,9 @@ export default function ContactSection() {
   };
 
   const socialLinks = [
-    { icon: Github, label: 'GitHub', status: 'ONLINE', href: '#' },
-    { icon: Linkedin, label: 'LinkedIn', status: 'ONLINE', href: '#' },
-    { icon: Shield, label: 'TryHackMe', status: 'ONLINE', href: '#' },
+    { icon: Github,   label: 'GitHub',    status: 'ONLINE', href: '#' },
+    { icon: Linkedin, label: 'LinkedIn',  status: 'ONLINE', href: '#' },
+    { icon: Shield,   label: 'TryHackMe', status: 'ONLINE', href: '#' },
   ];
 
   return (
@@ -29,14 +29,22 @@ export default function ContactSection() {
       <div className="absolute inset-0 hex-grid-bg" />
       <WavePulseBg />
 
+      {/* Indigo/cyan ambient — AI focused */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute bottom-0 left-0 w-[500px] h-[300px] rounded-full blur-[120px]"
+          style={{ background: 'radial-gradient(circle, hsla(239,84%,67%,0.08), transparent)' }} />
+        <div className="absolute top-0 right-0 w-[400px] h-[300px] rounded-full blur-[100px]"
+          style={{ background: 'radial-gradient(circle, hsla(187,94%,43%,0.06), transparent)' }} />
+      </div>
+
       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="font-mono text-xs text-matrix/60 tracking-[0.3em] mb-2"
+          className="font-mono text-xs text-indigo/60 tracking-[0.3em] mb-2"
         >
-          SECTION_07
+          MODULE_06
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +52,7 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-display font-bold text-gradient-primary mb-8"
         >
-          Secure Channel
+          Let's Connect
         </motion.h2>
 
         <div className="grid md:grid-cols-5 gap-8">
@@ -55,11 +63,12 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="glass-panel-strong rounded-xl p-6 md:p-8 border-matrix/10">
+            <div className="glass-panel-strong rounded-xl p-6 md:p-8 border-indigo/10">
               <div className="flex items-center gap-2 mb-6 pb-3 border-b border-border">
-                <div className="w-3 h-3 rounded-full bg-matrix/60" />
-                <span className="font-mono text-xs text-muted-foreground">
-                  secure_transmission.sh
+                <div className="w-3 h-3 rounded-full bg-indigo/60" />
+                <div className="w-3 h-3 rounded-full bg-cyan/40" />
+                <span className="ml-2 font-mono text-xs text-muted-foreground">
+                  send_message.py
                 </span>
               </div>
 
@@ -73,24 +82,24 @@ export default function ContactSection() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 300 }}
-                    className="w-16 h-16 rounded-full bg-matrix/10 flex items-center justify-center mx-auto mb-4"
+                    className="w-16 h-16 rounded-full bg-indigo/10 flex items-center justify-center mx-auto mb-4"
                   >
-                    <Check className="w-8 h-8 text-matrix" />
+                    <Check className="w-8 h-8 text-indigo" />
                   </motion.div>
-                  <p className="font-mono text-sm text-matrix mb-2">TRANSMISSION COMPLETE</p>
+                  <p className="font-mono text-sm text-indigo mb-2">MESSAGE DELIVERED</p>
                   <p className="font-mono text-xs text-muted-foreground">
-                    Message encrypted and delivered. Expect response within 24h.
+                    I'll get back to you within 24 hours.
                   </p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {[
-                    { name: 'name' as const, label: 'IDENTIFIER', type: 'text', placeholder: 'Your name' },
-                    { name: 'email' as const, label: 'COMM_CHANNEL', type: 'email', placeholder: 'your@email.com' },
-                    { name: 'subject' as const, label: 'SUBJECT_LINE', type: 'text', placeholder: 'Subject' },
+                    { name: 'name'    as const, label: 'YOUR_NAME',    type: 'text',  placeholder: 'Your name' },
+                    { name: 'email'   as const, label: 'EMAIL',         type: 'email', placeholder: 'your@email.com' },
+                    { name: 'subject' as const, label: 'SUBJECT',       type: 'text',  placeholder: 'What\'s it about?' },
                   ].map((field) => (
                     <div key={field.name} className="relative">
-                      <label className="font-mono text-[10px] text-cyan/60 tracking-wider mb-1 block">
+                      <label className="font-mono text-[10px] text-indigo/60 tracking-wider mb-1 block">
                         {'>'} {field.label}
                       </label>
                       <input
@@ -101,25 +110,25 @@ export default function ContactSection() {
                         onChange={(e) => setFormState(s => ({ ...s, [field.name]: e.target.value }))}
                         className="w-full bg-transparent border border-border rounded-lg px-4 py-3 font-mono text-sm
                           text-foreground placeholder:text-muted-foreground/40
-                          focus:outline-none focus:border-matrix/50 focus:ring-1 focus:ring-matrix/20
+                          focus:outline-none focus:border-indigo/50 focus:ring-1 focus:ring-indigo/20
                           transition-all duration-300"
                       />
                     </div>
                   ))}
 
                   <div>
-                    <label className="font-mono text-[10px] text-cyan/60 tracking-wider mb-1 block">
-                      {'>'} MESSAGE_BODY
+                    <label className="font-mono text-[10px] text-indigo/60 tracking-wider mb-1 block">
+                      {'>'} MESSAGE
                     </label>
                     <textarea
-                      placeholder="Your message..."
+                      placeholder="Tell me about your project or idea..."
                       required
                       rows={4}
                       value={formState.message}
                       onChange={(e) => setFormState(s => ({ ...s, message: e.target.value }))}
                       className="w-full bg-transparent border border-border rounded-lg px-4 py-3 font-mono text-sm
                         text-foreground placeholder:text-muted-foreground/40 resize-none
-                        focus:outline-none focus:border-matrix/50 focus:ring-1 focus:ring-matrix/20
+                        focus:outline-none focus:border-indigo/50 focus:ring-1 focus:ring-indigo/20
                         transition-all duration-300"
                     />
                   </div>
@@ -128,7 +137,7 @@ export default function ContactSection() {
                     type="submit"
                     disabled={sending}
                     className="w-full glass-panel rounded-lg px-6 py-3 font-mono text-sm
-                      border-matrix/20 hover:border-matrix/50 hover:glow-matrix
+                      border-indigo/20 hover:border-indigo/50 hover:glow-indigo
                       transition-all duration-300 flex items-center justify-center gap-2"
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
@@ -137,18 +146,18 @@ export default function ContactSection() {
                       <div className="flex items-center gap-3">
                         <div className="h-1 w-40 bg-secondary rounded-full overflow-hidden">
                           <motion.div
-                            className="h-full bg-matrix rounded-full"
+                            className="h-full bg-gradient-to-r from-indigo to-cyan rounded-full"
                             initial={{ width: '0%' }}
                             animate={{ width: '100%' }}
                             transition={{ duration: 2.5 }}
                           />
                         </div>
-                        <span className="text-matrix text-xs">ENCRYPTING...</span>
+                        <span className="text-indigo text-xs">SENDING...</span>
                       </div>
                     ) : (
                       <>
-                        <Send size={14} className="text-matrix" />
-                        <span>Encrypt & Transmit</span>
+                        <Send size={14} className="text-indigo" />
+                        <span>Send Message</span>
                       </>
                     )}
                   </motion.button>
@@ -157,7 +166,7 @@ export default function ContactSection() {
             </div>
           </motion.div>
 
-          {/* Sidebar info */}
+          {/* Sidebar */}
           <motion.div
             className="md:col-span-2 space-y-6"
             initial={{ opacity: 0, x: 30 }}
@@ -165,31 +174,37 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
+            {/* Info card */}
             <div className="glass-panel rounded-xl p-6">
-              <div className="font-mono text-xs text-cyan/60 tracking-wider mb-4">
-                {'>'} SYSTEM STATUS
+              <div className="font-mono text-xs text-indigo/60 tracking-wider mb-4">
+                {'>'} STATUS
               </div>
               <div className="space-y-3 font-mono text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Response Time</span>
-                  <span className="text-matrix">{'<'} 24h</span>
+                  <span className="text-cyan">{'<'} 24h</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Encryption</span>
-                  <span className="text-cyan">AES-256</span>
+                  <span className="text-muted-foreground">Open To</span>
+                  <span className="text-indigo">AI/ML Roles</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Status</span>
-                  <span className="text-matrix flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-matrix animate-pulse" />
-                    ACCEPTING
+                  <span className="text-cyan flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse" />
+                    ACTIVE
                   </span>
+                </div>
+                {/* Cyber interest — 25% presence */}
+                <div className="flex justify-between pt-1 border-t border-border/50 mt-2">
+                  <span className="text-muted-foreground text-[11px]">Sec Interest</span>
+                  <span className="text-matrix/70 text-[11px]">Adversarial ML</span>
                 </div>
               </div>
             </div>
 
-            <div className="font-mono text-xs text-cyan/60 tracking-wider mb-2">
-              {'>'} EXTERNAL NODES
+            <div className="font-mono text-xs text-indigo/60 tracking-wider mb-2">
+              {'>'} FIND ME ON
             </div>
             <div className="space-y-3">
               {socialLinks.map((link) => (
@@ -197,15 +212,15 @@ export default function ContactSection() {
                   key={link.label}
                   href={link.href}
                   className="glass-panel rounded-lg px-4 py-3 flex items-center justify-between
-                    hover:border-matrix/30 transition-all duration-300 group block"
+                    hover:border-indigo/30 transition-all duration-300 group block"
                   whileHover={{ x: 4 }}
                 >
                   <div className="flex items-center gap-3">
-                    <link.icon size={16} className="text-muted-foreground group-hover:text-matrix transition-colors" />
+                    <link.icon size={16} className="text-muted-foreground group-hover:text-indigo transition-colors" />
                     <span className="font-mono text-sm text-foreground">{link.label}</span>
                   </div>
-                  <span className="font-mono text-[10px] text-matrix/0 group-hover:text-matrix/70 transition-all">
-                    {link.status}
+                  <span className="font-mono text-[10px] text-indigo/0 group-hover:text-indigo/70 transition-all">
+                    {link.status} →
                   </span>
                 </motion.a>
               ))}
@@ -220,7 +235,13 @@ export default function ContactSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <p>{'>'} system.log: "Crafted with neural precision" // © 2026</p>
+          <p>
+            <span className="text-indigo/40">model</span>
+            <span className="text-muted-foreground/30">.forward(</span>
+            <span className="text-cyan/40">"crafted with neural precision"</span>
+            <span className="text-muted-foreground/30">)</span>
+            <span className="text-matrix/30 ml-3">// © 2026</span>
+          </p>
         </motion.div>
       </div>
     </section>

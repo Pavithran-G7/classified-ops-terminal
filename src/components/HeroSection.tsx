@@ -5,18 +5,17 @@ import { useTypewriter } from '@/hooks/useTypewriter';
 
 const NeuralGlobe = lazy(() => import('./NeuralGlobe'));
 
+/* Boot lines — AI/ML first, one cyber line */
 const bootLines = [
-  { text: '> initializing_neural_link...', delay: 800 },
-  { text: '> loading_ai_modules... [OK]', delay: 0 },
-  { text: '> security_protocols... [ACTIVE]', delay: 0 },
-  { text: '> identity_verified', delay: 0 },
+  { text: '> initializing_neural_network...', delay: 800 },
+  { text: '> loading_transformer_models... [OK]', delay: 0 },
+  { text: '> calibrating_inference_engine... [OK]', delay: 0 },
+  { text: '> system_ready // sec_layer: active', delay: 0 },
 ];
 
 export default function HeroSection() {
   const [bootPhase, setBootPhase] = useState(0);
   const [showContent, setShowContent] = useState(false);
-  const [bootComplete, setBootComplete] = useState(false);
-
 
   const line0 = useTypewriter({ text: bootLines[0].text, speed: 30, delay: 1000, enabled: bootPhase >= 0 });
   const line1 = useTypewriter({ text: bootLines[1].text, speed: 25, delay: 0, enabled: bootPhase >= 1 });
@@ -28,7 +27,6 @@ export default function HeroSection() {
     if (line1.isComplete && bootPhase === 1) setBootPhase(2);
     if (line2.isComplete && bootPhase === 2) setBootPhase(3);
     if (line3.isComplete && bootPhase === 3) {
-      setBootComplete(true);
       setTimeout(() => setShowContent(true), 500);
     }
   }, [line0.isComplete, line1.isComplete, line2.isComplete, line3.isComplete, bootPhase]);
@@ -39,29 +37,27 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 hex-grid-bg" />
       <NeuralCanvas />
       <div className="absolute inset-0 scanline-overlay" />
 
-      {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-11 gap-8 items-center">
-        {/* Left - 3D Neural Globe */}
+        {/* Left — 3D Neural Globe */}
         <div className="lg:col-span-6 h-[280px] sm:h-[320px] md:h-[400px] lg:h-[500px] xl:h-[560px]">
           <Suspense fallback={<div className="w-full h-full" />}>
             <NeuralGlobe />
           </Suspense>
         </div>
 
-        {/* Right - Terminal */}
+        {/* Right — Terminal */}
         <div className="lg:col-span-5">
           <div className="glass-panel rounded-lg p-6 glow-indigo">
             {/* Terminal header */}
             <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
               <div className="w-3 h-3 rounded-full bg-destructive/70" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-              <div className="w-3 h-3 rounded-full bg-matrix/70" />
-              <span className="ml-2 font-mono text-xs text-muted-foreground">neural_link.sh</span>
+              <div className="w-3 h-3 rounded-full bg-indigo/70" />
+              <span className="ml-2 font-mono text-xs text-muted-foreground">neural_init.py</span>
             </div>
 
             {/* Boot sequence */}
@@ -85,7 +81,7 @@ export default function HeroSection() {
                 </p>
               )}
               {bootPhase >= 3 && (
-                <p className={line3.isComplete ? 'text-matrix' : 'text-muted-foreground'}>
+                <p className={line3.isComplete ? 'text-cyan' : 'text-muted-foreground'}>
                   {line3.displayed}
                   {!line3.isComplete && <span className="terminal-cursor" />}
                   {line3.isComplete && ' ✓'}
@@ -109,13 +105,25 @@ export default function HeroSection() {
                   <span className="text-gradient-primary">Kiran Raj S</span>
                 </motion.h1>
 
+                {/* Role — AI/ML first, sec as qualifier */}
                 <motion.div
-                  className="font-mono text-sm text-cyan mb-6"
+                  className="font-mono text-sm mb-1"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.6 }}
+                  transition={{ delay: 0.5 }}
                 >
-                  AI/ML Engineer <span className="text-muted-foreground"></span>
+                  <span className="text-cyan">AI / ML Engineer</span>
+                  <span className="text-muted-foreground mx-2">×</span>
+                  <span className="text-matrix/80 text-xs">Cybersecurity</span>
+                </motion.div>
+
+                <motion.div
+                  className="font-mono text-xs text-indigo/70 mb-5"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.65 }}
+                >
+                  Deep Learning · NLP · Computer Vision · Adversarial ML
                 </motion.div>
 
                 <motion.div
@@ -125,23 +133,23 @@ export default function HeroSection() {
                   transition={{ delay: 0.8 }}
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-matrix animate-pulse" />
-                    <span className="font-mono text-xs text-matrix/80">AVAILABLE</span>
+                    <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
+                    <span className="font-mono text-xs text-cyan/80">AVAILABLE FOR OPPORTUNITIES</span>
                   </div>
                 </motion.div>
 
                 <motion.button
                   onClick={scrollToAbout}
-                  className="mt-6 glass-panel px-6 py-3 rounded-lg font-mono text-sm text-foreground 
-                    hover:border-matrix/50 hover:glow-matrix transition-all duration-300 group"
+                  className="mt-6 glass-panel px-6 py-3 rounded-lg font-mono text-sm text-foreground
+                    hover:border-cyan/50 transition-all duration-300 group border-indigo/30"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span className="text-matrix mr-2">{'>'}</span>
-                  Access System
+                  <span className="text-indigo mr-2">{'>'}</span>
+                  Explore My Work
                   <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
                 </motion.button>
               </motion.div>
@@ -163,7 +171,7 @@ export default function HeroSection() {
             transition={{ duration: 2, repeat: Infinity }}
             className="w-5 h-8 rounded-full border border-muted-foreground/30 flex items-start justify-center p-1"
           >
-            <div className="w-1 h-2 rounded-full bg-cyan" />
+            <div className="w-1 h-2 rounded-full bg-indigo" />
           </motion.div>
         </motion.div>
       )}
