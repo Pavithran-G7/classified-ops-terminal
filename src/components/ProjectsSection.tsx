@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Lock } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
+import FloatingNodesBg from './backgrounds/FloatingNodesBg';
 
 const projects = [
   {
@@ -43,6 +44,7 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="relative py-12 md:py-16 overflow-hidden">
       <div className="absolute inset-0 hex-grid-bg" />
+      <FloatingNodesBg />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         <motion.div

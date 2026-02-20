@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState, useMemo } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion';
+import RadarSweepBg from './backgrounds/RadarSweepBg';
 
 const timeline = [
   {
@@ -118,6 +119,7 @@ export default function ExperienceSection() {
       className="relative py-12 md:py-16 overflow-hidden"
     >
       <div className="absolute inset-0 hex-grid-bg" />
+      <RadarSweepBg />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8">
         {/* Header */}
