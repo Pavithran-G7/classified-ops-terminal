@@ -127,9 +127,9 @@ export default function ExperienceSection() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="font-mono text-xs text-matrix/60 tracking-[0.3em] mb-2"
+          className="font-mono text-xs text-indigo/60 tracking-[0.3em] mb-2"
         >
-          SECTION_05
+          MODULE_05
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -137,7 +137,7 @@ export default function ExperienceSection() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-display font-bold text-gradient-primary mb-4"
         >
-          Field Experience
+          Experience
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -145,7 +145,7 @@ export default function ExperienceSection() {
           viewport={{ once: true }}
           className="font-mono text-xs text-muted-foreground mb-8 tracking-wider"
         >
-          {'>'} SCROLL TO NAVIGATE MISSION PATH
+          {'>'} SCROLL TO NAVIGATE CAREER PATH
         </motion.p>
 
         {/* Timeline container */}
@@ -438,7 +438,7 @@ function TimelineCard({
         <p className="font-mono text-xs text-[hsl(var(--cyan))]/80 mb-3">{item.company}</p>
 
         <div className="font-mono text-[10px] text-muted-foreground mb-1 tracking-wider">
-          {'>'} MISSION OBJECTIVES
+          {'>'} KEY CONTRIBUTIONS
         </div>
         <ul className="space-y-1 mb-3">
           {item.objectives.map((obj, j) => (

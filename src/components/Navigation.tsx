@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
-  { id: 'hero', label: 'HOME', fullName: 'Neural Link' },
-  { id: 'about', label: 'ABOUT', fullName: 'System Profile' },
-  { id: 'skills', label: 'SKILLS', fullName: 'Tech Arsenal' },
-  { id: 'projects', label: 'PROJECTS', fullName: 'Deployed Operations' },
-  { id: 'experience', label: 'TIMELINE', fullName: 'Field Experience' },
-  { id: 'contact', label: 'CONTACT', fullName: 'Secure Channel' },
+  { id: 'hero',       label: 'HOME',     fullName: 'Neural Link' },
+  { id: 'about',      label: 'ABOUT',    fullName: 'Model Profile' },
+  { id: 'skills',     label: 'SKILLS',   fullName: 'Tech Stack' },
+  { id: 'projects',   label: 'PROJECTS', fullName: 'AI Projects' },
+  { id: 'experience', label: 'TIMELINE', fullName: 'Experience' },
+  { id: 'contact',    label: 'CONTACT',  fullName: 'Connect' },
 ];
 
 export default function Navigation() {
@@ -48,12 +48,16 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        {/* Logo — AI-primary, cyber accent */}
         <motion.button
           onClick={() => scrollTo('hero')}
-          className="font-mono text-sm tracking-wider text-matrix"
+          className="font-mono text-sm tracking-wider"
           whileHover={{ scale: 1.05 }}
         >
-          {'>'} _NEURAL.SYS
+          <span className="text-indigo">{'>'}</span>
+          <span className="text-cyan"> KIRAN</span>
+          <span className="text-muted-foreground">.</span>
+          <span className="text-indigo">AI</span>
         </motion.button>
 
         <div className="hidden md:flex items-center gap-1">
@@ -65,7 +69,7 @@ export default function Navigation() {
               onMouseLeave={() => setHoveredItem(null)}
               className={`relative px-4 py-2 font-mono text-xs tracking-widest transition-colors duration-300 ${
                 activeSection === item.id
-                  ? 'text-matrix'
+                  ? 'text-cyan'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
               whileHover={{ y: -1 }}
@@ -78,7 +82,7 @@ export default function Navigation() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -5 }}
                     transition={{ duration: 0.15 }}
-                    className="text-cyan"
+                    className="text-indigo"
                   >
                     {item.fullName}
                   </motion.span>
@@ -97,7 +101,7 @@ export default function Navigation() {
               {activeSection === item.id && (
                 <motion.div
                   layoutId="nav-indicator"
-                  className="absolute bottom-0 left-2 right-2 h-px bg-matrix"
+                  className="absolute bottom-0 left-2 right-2 h-px bg-gradient-to-r from-indigo to-cyan"
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 />
               )}
@@ -105,9 +109,10 @@ export default function Navigation() {
           ))}
         </div>
 
+        {/* Status — indigo/cyan primary, matrix as subtle accent */}
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-matrix animate-pulse" />
-          <span className="font-mono text-xs text-matrix/70">ONLINE</span>
+          <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
+          <span className="font-mono text-xs text-cyan/70">ONLINE</span>
         </div>
       </div>
     </motion.nav>
